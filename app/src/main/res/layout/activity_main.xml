@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <android.support.v4.app.FragmentTabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@android:id/tabhost"
+        >
+        <!--
+        系统要求，具体原因暂时还未追究，不然就会报错
+        这个FrameLayout并不是显示内容的fragment
+        且其id必须为tabcontent
+        -->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0"/>
+    </android.support.v4.app.FragmentTabHost>
+
+    <!--
+        用来存放标签所对应的内容,用来显示我们的fragment
+        若其放置在FragmentTabHost下边，则标签就位于上边，
+        反之，标签则位于下边
+        -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/fragment"
+        >
+    </FrameLayout>
+
+</LinearLayout>
